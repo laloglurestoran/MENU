@@ -1,0 +1,674 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Laloğlu Menü</title>
+
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #f5f0e7;
+    color: #1c1c1c;
+}
+
+header {
+    background: #151515;
+    text-align: center;
+    padding: 18px 15px 16px;
+}
+
+.logo {
+    width: 115px;
+    height: 115px;
+    object-fit: contain;
+    display: block;
+    margin: auto;
+}
+
+.slogan {
+    color: #d3a64d;
+    font-size: 12px;
+    letter-spacing: 2px;
+    margin-top: 5px;
+}
+
+.sayfa {
+    max-width: 600px;
+    margin: auto;
+    padding: 25px 18px 50px;
+}
+
+.baslik {
+    text-align: center;
+    margin-bottom: 25px;
+}
+
+.baslik h2 {
+    margin: 0 0 7px;
+    font-size: 23px;
+}
+
+.baslik p {
+    margin: 0;
+    color: #777;
+    font-size: 14px;
+}
+
+/* ANA KATEGORİ KARTLARI */
+
+.ana-kart {
+    background: white;
+    border: 1px solid #e2d6c1;
+    border-radius: 16px;
+    padding: 22px 20px;
+    margin-bottom: 15px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.05);
+    transition: 0.2s;
+}
+
+.ana-kart:hover {
+    transform: translateY(-2px);
+    border-color: #c99c45;
+}
+
+.kart-sol {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+}
+
+.ikon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #151515;
+    color: #d3a64d;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+}
+
+.kart-yazi strong {
+    display: block;
+    font-size: 19px;
+    margin-bottom: 4px;
+}
+
+.kart-yazi span {
+    color: #777;
+    font-size: 13px;
+}
+
+.ok {
+    color: #c99c45;
+    font-size: 25px;
+}
+
+/* SAYFALAR */
+
+.bolum {
+    display: none;
+}
+
+.bolum.aktif {
+    display: block;
+}
+
+.geri {
+    border: none;
+    background: none;
+    color: #8d6b2e;
+    font-size: 14px;
+    cursor: pointer;
+    padding: 0;
+    margin-bottom: 22px;
+    font-weight: bold;
+}
+
+/* YİYECEK ALT KATEGORİLER */
+
+.alt-kategoriler {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    margin-bottom: 25px;
+}
+
+.alt-kategoriler button {
+    background: white;
+    border: 1px solid #d3a64d;
+    border-radius: 12px;
+    padding: 13px 8px;
+    font-size: 14px;
+    cursor: pointer;
+    color: #222;
+}
+
+.alt-kategoriler button.aktif {
+    background: #151515;
+    color: white;
+    border-color: #151515;
+}
+
+/* ÜRÜNLER */
+
+.urun-grubu {
+    display: none;
+}
+
+.urun-grubu.aktif {
+    display: block;
+}
+
+.kategori-baslik {
+    font-size: 22px;
+    margin: 5px 0 5px;
+}
+
+.gold-cizgi {
+    width: 45px;
+    height: 3px;
+    background: #c99c45;
+    margin-bottom: 12px;
+}
+
+.urun {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 17px 0;
+    border-bottom: 1px solid #ddd5c8;
+}
+
+.urun-adi {
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.aciklama {
+    font-size: 13px;
+    color: #777;
+    margin-top: 5px;
+    line-height: 1.4;
+}
+
+.fiyat {
+    color: #a97925;
+    font-size: 17px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+/* ALT BİLGİ */
+
+footer {
+    background: #151515;
+    color: white;
+    text-align: center;
+    padding: 25px 15px;
+    font-size: 13px;
+}
+
+footer strong {
+    letter-spacing: 3px;
+}
+
+footer p {
+    color: #ccc;
+    margin: 8px 0;
+}
+
+footer .gold {
+    color: #d3a64d;
+}
+
+/* TELEFON */
+
+@media(max-width: 500px) {
+
+    .sayfa {
+        padding-top: 22px;
+    }
+
+    .ana-kart {
+        padding: 19px 16px;
+    }
+
+    .ikon {
+        width: 46px;
+        height: 46px;
+        font-size: 21px;
+    }
+
+    .kart-yazi strong {
+        font-size: 18px;
+    }
+}
+</style>
+</head>
+
+
+<body>
+
+<header>
+
+    <img src="logo.jpg" class="logo" alt="Laloğlu">
+
+    <div class="slogan">
+        LEZZETİN ADRESİ
+    </div>
+
+</header>
+
+
+<main class="sayfa">
+
+
+<!-- ANA MENÜ -->
+
+<section id="anaMenu" class="bolum aktif">
+
+    <div class="baslik">
+        <h2>Menümüz</h2>
+        <p>İncelemek istediğiniz bölümü seçin</p>
+    </div>
+
+
+    <div class="ana-kart" onclick="sayfaAc('yiyecekler')">
+
+        <div class="kart-sol">
+
+            <div class="ikon">♨</div>
+
+            <div class="kart-yazi">
+                <strong>Yiyecekler</strong>
+                <span>Çorba, lahmacun, pide, kebap & ızgara</span>
+            </div>
+
+        </div>
+
+        <div class="ok">›</div>
+
+    </div>
+
+
+    <div class="ana-kart" onclick="sayfaAc('icecekler')">
+
+        <div class="kart-sol">
+
+            <div class="ikon">🥤</div>
+
+            <div class="kart-yazi">
+                <strong>İçecekler</strong>
+                <span>Soğuk ve sıcak içecekler</span>
+            </div>
+
+        </div>
+
+        <div class="ok">›</div>
+
+    </div>
+
+
+    <div class="ana-kart" onclick="sayfaAc('tatlilar')">
+
+        <div class="kart-sol">
+
+            <div class="ikon">◆</div>
+
+            <div class="kart-yazi">
+                <strong>Tatlılar</strong>
+                <span>Tatlı çeşitlerimiz</span>
+            </div>
+
+        </div>
+
+        <div class="ok">›</div>
+
+    </div>
+
+</section>
+
+
+
+<!-- YİYECEKLER -->
+
+<section id="yiyecekler" class="bolum">
+
+    <button class="geri" onclick="anaMenu()">← Ana Menü</button>
+
+    <div class="baslik">
+        <h2>Yiyecekler</h2>
+        <p>Kategori seçerek ürünleri inceleyebilirsiniz</p>
+    </div>
+
+
+    <div class="alt-kategoriler">
+
+        <button class="aktif" onclick="kategoriAc('corbalar', this)">
+            Çorbalar
+        </button>
+
+        <button onclick="kategoriAc('lahmacunlar', this)">
+            Lahmacun
+        </button>
+
+        <button onclick="kategoriAc('pideler', this)">
+            Pideler
+        </button>
+
+        <button onclick="kategoriAc('kebapIzgara', this)">
+            Kebap & Izgara
+        </button>
+
+    </div>
+
+
+    <!-- ÇORBALAR -->
+
+    <div id="corbalar" class="urun-grubu aktif">
+
+        <h3 class="kategori-baslik">Çorbalar</h3>
+        <div class="gold-cizgi"></div>
+
+        <div class="urun">
+
+            <div>
+                <div class="urun-adi">Mercimek Çorbası</div>
+                <div class="aciklama">Günün sıcak çorbası</div>
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- LAHMACUN -->
+
+    <div id="lahmacunlar" class="urun-grubu">
+
+        <h3 class="kategori-baslik">Lahmacun</h3>
+        <div class="gold-cizgi"></div>
+
+        <div class="urun">
+
+            <div>
+                <div class="urun-adi">Lahmacun</div>
+                <div class="aciklama">Özel harcımız ile hazırlanır</div>
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- PİDELER -->
+
+    <div id="pideler" class="urun-grubu">
+
+        <h3 class="kategori-baslik">Pideler</h3>
+        <div class="gold-cizgi"></div>
+
+
+        <div class="urun">
+
+            <div class="urun-adi">
+                Kıymalı Pide
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+
+        <div class="urun">
+
+            <div class="urun-adi">
+                Kuşbaşılı Pide
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+
+        <div class="urun">
+
+            <div class="urun-adi">
+                Kaşarlı Pide
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+    </div>
+
+
+    <!-- KEBAP & IZGARA -->
+
+    <div id="kebapIzgara" class="urun-grubu">
+
+        <h3 class="kategori-baslik">Kebap & Izgara</h3>
+        <div class="gold-cizgi"></div>
+
+
+        <div class="urun">
+
+            <div class="urun-adi">
+                Adana Kebap
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+
+        <div class="urun">
+
+            <div class="urun-adi">
+                Urfa Kebap
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+
+        <div class="urun">
+
+            <div class="urun-adi">
+                Köfte
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+
+        <div class="urun">
+
+            <div class="urun-adi">
+                Tavuk Şiş
+            </div>
+
+            <div class="fiyat">— ₺</div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- İÇECEKLER -->
+
+<section id="icecekler" class="bolum">
+
+    <button class="geri" onclick="anaMenu()">← Ana Menü</button>
+
+    <div class="baslik">
+        <h2>İçecekler</h2>
+    </div>
+
+
+    <div class="urun">
+
+        <div class="urun-adi">Ayran</div>
+
+        <div class="fiyat">— ₺</div>
+
+    </div>
+
+
+    <div class="urun">
+
+        <div class="urun-adi">Şalgam</div>
+
+        <div class="fiyat">— ₺</div>
+
+    </div>
+
+
+    <div class="urun">
+
+        <div class="urun-adi">Kola</div>
+
+        <div class="fiyat">— ₺</div>
+
+    </div>
+
+
+    <div class="urun">
+
+        <div class="urun-adi">Su</div>
+
+        <div class="fiyat">— ₺</div>
+
+    </div>
+
+</section>
+
+
+
+<!-- TATLILAR -->
+
+<section id="tatlilar" class="bolum">
+
+    <button class="geri" onclick="anaMenu()">← Ana Menü</button>
+
+    <div class="baslik">
+        <h2>Tatlılar</h2>
+    </div>
+
+
+    <div class="urun">
+
+        <div>
+            <div class="urun-adi">Baklava</div>
+            <div class="aciklama">Tatlı çeşitlerimiz için bilgi alabilirsiniz</div>
+        </div>
+
+        <div class="fiyat">— ₺</div>
+
+    </div>
+
+</section>
+
+
+</main>
+
+
+
+<footer>
+
+    <strong>LALOĞLU</strong>
+
+    <p>Şehit Hasan Kuzu Caddesi No: 327/A, Manisa</p>
+
+    <p>0530 595 01 45</p>
+
+    <div class="gold">
+        LEZZETİN ADRESİ
+    </div>
+
+</footer>
+
+
+
+<script>
+
+/* ANA KATEGORİ AÇ */
+
+function sayfaAc(id) {
+
+    document.querySelectorAll('.bolum').forEach(function(bolum) {
+        bolum.classList.remove('aktif');
+    });
+
+    document.getElementById(id).classList.add('aktif');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+/* ANA MENÜYE DÖN */
+
+function anaMenu() {
+
+    document.querySelectorAll('.bolum').forEach(function(bolum) {
+        bolum.classList.remove('aktif');
+    });
+
+    document.getElementById('anaMenu').classList.add('aktif');
+
+    window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+    });
+}
+
+
+/* YİYECEK ALT KATEGORİLERİ */
+
+function kategoriAc(id, buton) {
+
+    document.querySelectorAll('.urun-grubu').forEach(function(grup) {
+        grup.classList.remove('aktif');
+    });
+
+    document.getElementById(id).classList.add('aktif');
+
+
+    document.querySelectorAll('.alt-kategoriler button').forEach(function(btn) {
+        btn.classList.remove('aktif');
+    });
+
+    buton.classList.add('aktif');
+}
+
+</script>
+
+
+</body>
+</html>
