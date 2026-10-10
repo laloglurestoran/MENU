@@ -309,17 +309,27 @@ footer .gold {
     </div>
 
     <div class="alt-kategoriler">
+
         <button class="aktif"
-        onclick="kategoriAc('corbalar',this)">Çorbalar</button>
+        onclick="kategoriAc('corbalar',this)">
+        Çorbalar
+        </button>
 
         <button
-        onclick="kategoriAc('lahmacunlar',this)">Lahmacun</button>
+        onclick="kategoriAc('lahmacunlar',this)">
+        Lahmacun
+        </button>
 
         <button
-        onclick="kategoriAc('pideler',this)">Pideler</button>
+        onclick="kategoriAc('pideler',this)">
+        Pideler
+        </button>
 
         <button
-        onclick="kategoriAc('kebapIzgara',this)">Kebap & Izgara</button>
+        onclick="kategoriAc('kebapIzgara',this)">
+        Kebap & Izgara
+        </button>
+
     </div>
 
     <div id="corbalar" class="urun-grubu aktif"></div>
@@ -370,8 +380,8 @@ footer .gold {
 </footer>
 
 
-<!-- ÜRÜN VE FİYATLARI BURADAN ALIYORUZ -->
-<script src="menu.js"></script>
+<!-- GÜNCEL MENÜ DOSYASI -->
+<script src="menu.js?v=2"></script>
 
 <script>
 
@@ -526,7 +536,6 @@ function kategoriAc(id,buton) {
 
     document.getElementById(id)
     .classList.add("aktif");
-
 
     document.querySelectorAll(
         ".alt-kategoriler button"
